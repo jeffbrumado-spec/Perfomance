@@ -129,6 +129,13 @@ Para compartilhar o servidor entre vários clientes/agentes, ele também roda em
 `streamable-http` com OAuth próprio, inclusive no Cloud Run. O procedimento está
 no README do upstream: `vendor/google-ads-mcp/README.md`.
 
+## Skill e agentes
+
+O método de consulta e análise fica em `.claude/skills/google-ads/` (a skill
+carrega sozinha quando o assunto é Ads) e os especialistas em `.claude/agents/`:
+`ads-performance`, `ads-auditoria`, `ads-pacing` e `ads-relatorio`. Todos são
+somente leitura.
+
 ## Origem do código
 
 `vendor/google-ads-mcp/` é o projeto [googleads/google-ads-mcp](https://github.com/googleads/google-ads-mcp)
