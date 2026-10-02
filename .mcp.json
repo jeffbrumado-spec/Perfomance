@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "google-ads": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "for d in \"$GOOGLE_ADS_MCP_DIR\" \"$CLAUDE_PROJECT_DIR\" \"$PWD\"; do if [ -n \"$d\" ] && [ -x \"$d/scripts/run-google-ads-mcp.sh\" ]; then exec bash \"$d/scripts/run-google-ads-mcp.sh\"; fi; done; echo 'google-ads-mcp: scripts/run-google-ads-mcp.sh nao encontrado; defina GOOGLE_ADS_MCP_DIR com o caminho do repositorio' >&2; exit 1"
+      ],
+      "env": {
+        "GOOGLE_ADS_DEVELOPER_TOKEN": "${GOOGLE_ADS_DEVELOPER_TOKEN:-}",
+        "GOOGLE_ADS_LOGIN_CUSTOMER_ID": "${GOOGLE_ADS_LOGIN_CUSTOMER_ID:-}",
+        "GOOGLE_ADS_CLIENT_ID": "${GOOGLE_ADS_CLIENT_ID:-}",
+        "GOOGLE_ADS_CLIENT_SECRET": "${GOOGLE_ADS_CLIENT_SECRET:-}",
+        "GOOGLE_ADS_REFRESH_TOKEN": "${GOOGLE_ADS_REFRESH_TOKEN:-}"
+      }
+    }
+  }
+}

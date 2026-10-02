@@ -1,0 +1,12 @@
+# Credenciais - nunca versionar
+.secrets/
+*.client_secret.json
+client_secret*.json
+google-ads.yaml
+.env
+
+# Ambiente Python do servidor MCP
+.venv-google-ads-mcp/
+.venv/
+__pycache__/
+*.py[cod]
