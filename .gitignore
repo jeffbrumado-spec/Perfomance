@@ -10,3 +10,6 @@ google-ads.yaml
 .venv/
 __pycache__/
 *.py[cod]
+
+# Backup local
+*.bundle
