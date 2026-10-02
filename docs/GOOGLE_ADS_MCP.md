@@ -34,28 +34,62 @@ Todas são de **leitura**. O servidor não altera campanhas nem orçamentos.
 
 1. Crie (ou escolha) um projeto no [Google Cloud Console](https://console.cloud.google.com/).
 2. Ative a [Google Ads API](https://console.cloud.google.com/apis/library/googleads.googleapis.com).
-3. Em **APIs e serviços → Credenciais**, crie um **ID do cliente OAuth** do tipo
-   **Aplicativo para computador** e baixe o JSON.
+3. Configure a **tela de permissão OAuth**. Escolha **Interno** se o seu
+   domínio for Google Workspace; veja a nota sobre expiração no Passo 3.
+   Adicione o escopo `https://www.googleapis.com/auth/adwords`.
+4. Em **APIs e serviços → Credenciais**, crie um **ID do cliente OAuth**:
+   - **Aplicativo da Web** se for usar o Caminho A do Passo 3. Adicione
+     `https://developers.google.com/oauthplayground` em *URIs de
+     redirecionamento autorizados*.
+   - **Aplicativo para computador** se for usar o Caminho B. Baixe o JSON.
 
 ## Passo 3 — Refresh token
 
-Este passo exige navegador, então rode **na sua máquina**, não no container:
+O refresh token é o que permite ao servidor entrar na sua conta sem pedir senha
+toda vez. Há dois caminhos; escolha **um**.
+
+### Caminho A — pelo navegador (não instala nada)
+
+Exige que o cliente OAuth do Passo 2 seja do tipo **Aplicativo da Web**, com
+`https://developers.google.com/oauthplayground` na lista de URIs de
+redirecionamento autorizados.
+
+1. Abra o [OAuth Playground](https://developers.google.com/oauthplayground/).
+2. Clique na engrenagem (canto superior direito) e marque
+   **Use your own OAuth credentials**.
+3. Cole o Client ID e o Client Secret.
+4. No painel esquerdo, no campo **Input your own scopes**, cole:
+   `https://www.googleapis.com/auth/adwords`
+5. Clique **Authorize APIs** e autorize com a conta Google que tem acesso ao
+   Google Ads.
+6. Clique **Exchange authorization code for tokens**.
+7. Copie o valor de **Refresh token**.
+
+### Caminho B — pelo terminal (exige Python)
+
+Exige que o cliente OAuth seja do tipo **Aplicativo para computador**, e que
+você tenha [uv](https://docs.astral.sh/uv/) instalado. Rode **na sua máquina**,
+não no container — o fluxo precisa abrir um navegador local:
 
 ```bash
 uv run --with google-auth-oauthlib scripts/gerar-refresh-token.py client_secret.json
 ```
 
-O navegador abre, você autoriza com a conta Google que tem acesso ao Google Ads,
-e o script imprime três valores:
-
-```
-GOOGLE_ADS_CLIENT_ID=...
-GOOGLE_ADS_CLIENT_SECRET=...
-GOOGLE_ADS_REFRESH_TOKEN=...
-```
+O script imprime os três valores no final.
 
 > Esses valores dão acesso à sua conta de anúncios. Guarde como segredo: nunca
 > cole em chat, issue, PR ou arquivo versionado.
+
+### Atenção: o token de 7 dias
+
+Se a tela de permissão OAuth ficou com tipo **Externo** e status **Em teste**,
+o Google invalida o refresh token em **7 dias** e tudo para de funcionar. Para
+evitar:
+
+- Use o tipo **Interno**, se o seu domínio for Google Workspace. É o caminho
+  limpo: sem expiração e sem processo de verificação.
+- Se só houver **Externo**, vá na tela de permissão OAuth e clique em
+  **Publicar app** (status passa a "Em produção"). Aí o token não expira.
 
 ## Passo 4 — Registrar as credenciais
 
@@ -67,8 +101,8 @@ credenciais / variáveis de ambiente, e cadastre:
 | Variável | Obrigatória | Conteúdo |
 | --- | --- | --- |
 | `GOOGLE_ADS_DEVELOPER_TOKEN` | sim | developer token do Passo 1 |
-| `GOOGLE_ADS_CLIENT_ID` | sim | do Passo 3 |
-| `GOOGLE_ADS_CLIENT_SECRET` | sim | do Passo 3 |
+| `GOOGLE_ADS_CLIENT_ID` | sim | do Passo 2 |
+| `GOOGLE_ADS_CLIENT_SECRET` | sim | do Passo 2 |
 | `GOOGLE_ADS_REFRESH_TOKEN` | sim | do Passo 3 |
 | `GOOGLE_ADS_LOGIN_CUSTOMER_ID` | se usar MCC | ID da conta administradora, só dígitos |
 
