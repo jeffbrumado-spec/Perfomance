@@ -1,7 +1,9 @@
 # Perfomance
 
-Análise de Google Ads dentro do Claude Code: o MCP oficial do Google conectado,
-mais uma skill e quatro agentes especializados em performance de mídia paga.
+Growth e performance do **Google Ads da Renovabe** dentro do Claude Code: o MCP
+oficial do Google, a metodologia ADSUP e quatro agentes especializados.
+
+O escopo e os princípios do projeto estão em [CLAUDE.md](CLAUDE.md).
 
 ## Estrutura
 
@@ -11,6 +13,7 @@ mais uma skill e quatro agentes especializados em performance de mídia paga.
 | `.mcp.json` | registra o servidor no Claude Code |
 | `.claude/skills/google-ads/` | skill com método de consulta e análise |
 | `.claude/agents/` | subagentes especializados |
+| `docs/metodologia/` | especificações dos agentes (fonte de verdade) |
 | `scripts/` | instalação, inicialização e geração de refresh token |
 | `docs/GOOGLE_ADS_MCP.md` | passo a passo da conexão |
 
@@ -18,10 +21,10 @@ mais uma skill e quatro agentes especializados em performance de mídia paga.
 
 | Agente | Para quê |
 | --- | --- |
-| `ads-performance` | o que mudou no desempenho e por quê |
-| `ads-auditoria` | verba vazando e configuração quebrada |
-| `ads-pacing` | ritmo de gasto contra a meta e projeção |
-| `ads-relatorio` | relatório consolidado para cliente ou diretoria |
+| `ads-analise` | diagnóstico de conta por eficiência (PMax + Search) |
+| `ads-diagnostico-canal` | qual das três alavancas do ROAS está travando |
+| `ga4-comportamento` | comportamento e demanda do site, MER real |
+| `trafego-estrategico` | quanto investir para bater a meta |
 
 Todos operam **somente em leitura**. Nenhum altera campanha, lance ou orçamento.
 

@@ -97,7 +97,23 @@ avise. Quem lê o relatório vai mover verba com base nele.
 
 ## Agentes especializados
 
-Para trabalhos maiores, este repositório tem subagentes dedicados em
-`.claude/agents/`: `ads-performance`, `ads-auditoria`, `ads-pacing` e
-`ads-relatorio`. Use-os quando a tarefa for claramente de um deles; esta skill
-cobre o uso direto e dá a base comum a todos.
+Para trabalhos maiores, este projeto tem agentes dedicados em `.claude/agents/`,
+cada um apoiado numa especificação em `docs/metodologia/`:
+
+| Agente | Quando |
+| --- | --- |
+| `ads-analise` | diagnóstico de conta por eficiência (PMax + Search) |
+| `ads-diagnostico-canal` | qual das três alavancas do ROAS está travando |
+| `ga4-comportamento` | comportamento e demanda do site, MER real |
+| `trafego-estrategico` | quanto investir para bater a meta |
+
+Esta skill cobre o uso direto do MCP e dá a base comum a todos. Quando houver
+divergência entre ela e uma especificação de `docs/metodologia/`, a
+especificação vence — ela carrega o método da casa.
+
+## Escopo do projeto
+
+Leia `CLAUDE.md`: este repositório trata só de growth e performance do Google
+Ads da Renovabe, e a análise depende de dois parâmetros do negócio (margem
+bruta e ticket médio) que não vêm de API. Sem eles não há ROAS de equilíbrio e
+nada se classifica.

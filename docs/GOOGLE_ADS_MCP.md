@@ -167,8 +167,9 @@ no README do upstream: `vendor/google-ads-mcp/README.md`.
 
 O método de consulta e análise fica em `.claude/skills/google-ads/` (a skill
 carrega sozinha quando o assunto é Ads) e os especialistas em `.claude/agents/`:
-`ads-performance`, `ads-auditoria`, `ads-pacing` e `ads-relatorio`. Todos são
-somente leitura.
+`ads-analise`, `ads-diagnostico-canal`, `ga4-comportamento` e
+`trafego-estrategico`, cada um apoiado numa especificação em
+`docs/metodologia/`. Todos são somente leitura por padrão.
 
 ## Origem do código
 
