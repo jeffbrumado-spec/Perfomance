@@ -56,12 +56,16 @@ orçamento sem pedido explícito e confirmação.
 
 | Parâmetro | Valor | Status |
 | --- | --- | --- |
-| **Margem bruta média** | **50%** | ✅ informado pelo cliente |
+| **Margem bruta média** | **50%**, já líquida de frete | ✅ informado pelo cliente |
 | **ROAS de equilíbrio** | **2,00** (`100 ÷ 50`) | derivado |
 | **ROAS saudável** | **4,00** (equilíbrio × 2) | derivado |
 | Ticket médio da conta | R$ 318,27 | implícito nos dados de set/out 2026 |
 | Meta de receita do período | — | ❌ pendente (trava `trafego-estrategico`) |
 | Customer ID da conta | — | ❌ pendente |
+
+> O frete está **dentro** dos 50% (confirmado pelo cliente). Não desconte frete
+> de novo ao calcular CPA de empate ou margem por pedido — seria contar duas
+> vezes.
 
 ### O ticket é por produto, não da conta
 

@@ -318,7 +318,9 @@ puxam a média para cima. Usar a média superestimaria o CPA permitido aqui.
 | CPA saudável (`× 0,50`) | **R$ 58,24** |
 | CPA hoje | R$ 104,63 |
 
-**Hoje a campanha dá lucro bruto** — está R$ 11,85 abaixo do empate. Mas está
+**Hoje a campanha dá lucro bruto** — está R$ 11,85 abaixo do empate, e o frete
+já está dentro dos 50% de margem, então esses R$ 11,85 por pedido são
+contribuição real, não número antes do frete. Mas está
 **80% acima do alvo saudável**, ou seja, consome quase toda a margem bruta na
 aquisição e sobra pouco para a operação. Classificação: 🟡 **OTIMIZAR**, não
 🟢 ESCALAR.
@@ -346,6 +348,16 @@ gasta R$ 2.263,63/dia de um orçamento de R$ 5.100.
 Remover esse teto **sobe** CPC e CPA em troca de volume. A comparação "maçã com
 maçã" do §8 não existe como prometida — é gasto reprimido contra gasto livre.
 Entre esperando CPA acima de R$ 104,63 nas primeiras duas a três semanas.
+
+### O tamanho do que está em jogo
+
+| | Por pedido | Em 30 dias (67,4 conversões) |
+| --- | --- | --- |
+| Hoje (CPA R$ 104,63) | R$ 11,85 | R$ 798 |
+| No alvo (CPA R$ 58,24) | R$ 58,24 | R$ 3.925 |
+
+Chegar ao alvo multiplica a contribuição do mesmo volume por **cinco**. É isso
+que a campanha está tentando comprar — não mais conversão, conversão mais barata.
 
 ### A alavanca que não é de mídia
 
