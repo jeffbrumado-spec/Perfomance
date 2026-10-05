@@ -65,7 +65,16 @@ Depois de importar tudo: **Publicar**.
 - [ ] **Extensões:** sitelinks, frases de destaque e snippets não vêm no CSV.
       A lista está em `docs/campanhas/search-colageno-tipo2-articulacoes.md`.
 - [ ] **Força do anúncio** ao menos "Boa" em cada RSA.
-- [ ] **🔴 Conversão — isto é um gate, não um item de lista.** O `CLAUDE.md`
+- [ ] **🔴 Confirmar que a campanha usa "Metas padrão da conta".** Em
+      Configurações → Metas de conversão, tem que estar em *Padrão da conta*
+      (= **Compra**), nunca em metas específicas da campanha. Na conta existe
+      `add_to_cart` como ação **Principal** com R$ 5,7 milhões de "valor"
+      atribuído — se a campanha herdar essa meta, o algoritmo vai otimizar para
+      carrinho abandonado em vez de venda.
+- [ ] **Clicar em "Requer atenção"** na ação `purchase V2 - ServerSide - Sourei`
+      (Metas → Resumo → Compra) e ver o que o Google aponta. É a ação que
+      alimenta todo o número da conta.
+- [ ] **Decidir sobre o ajuste de ciclo de vida.** O `CLAUDE.md`
       manda congelar decisão de verba enquanto a mensuração não for validada, e
       ela não foi. Com **Maximizar valor de conversão**, o algoritmo lê o sinal
       de conversão a cada leilão: se houver micro-conversão ou valor errado no

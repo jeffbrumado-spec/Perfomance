@@ -101,9 +101,14 @@ O que exige cuidado:
 | --- | --- |
 | **Três rastreamentos paralelos de compra** | `Groke GA4` (janela 90 dias), `purchase - ServerSide` (30 dias) e `purchase V2` (30 dias). Só a última conta. Se alguém trocar qual é a Principal, o número da conta muda de patamar sem aviso |
 | **A ação Principal está em "Requer atenção"** | causa não verificada |
-| **Micro-conversão como meta principal em algumas campanhas** | `Visualização de página` é ação principal em 1 campanha e `Adicionar ao carrinho` em 5. Campanha nova **tem que usar a meta padrão da conta (Compras)**, nunca meta própria |
+| **Adicionar ao carrinho conta como conversão em 5 campanhas** | `add_to_cart - ServerSide - Sourei` é ação **Principal** na meta "Adicionar ao carrinho", com 28.246,12 conversões e **R$ 5.760.326,44 de "valor"** — carrinho não é receita. Usada em 5 de 246 campanhas. `Visualização de página` é principal em mais 1. Campanha nova **tem que ficar na meta padrão da conta (Compra)**, nunca meta própria |
 | **Valor de conversão incremental do ciclo de vida** | R$ 30,00 para clientes inativos contra R$ 0,01 para novos. Em campanha de prospecção isso é invertido: valoriza reconquista 3.000× mais que aquisição |
 | **36 ações de conversão na conta** | boa parte com "Configuração incorreta" ou "Removido". Dívida técnica que convida a erro futuro |
+
+A meta **"Compra" é a padrão da conta** (236 de 246 campanhas) e dentro dela só
+`purchase V2` é Principal — as outras sete são secundárias ou estão zeradas. Por
+isso o total de 8.055 conversões do relatório de campanhas bate com ela: as
+campanhas analisadas não contam carrinho.
 
 **Consequência prática:** recomendação de verba não fica congelada, porque o
 sinal analisado é limpo. Mas toda campanha nova precisa declarar explicitamente
