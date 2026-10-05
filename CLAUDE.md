@@ -74,7 +74,10 @@ classifica nada. Peça esses números antes de rodar `ads-analise` ou
 | --- | --- | --- |
 | MCP oficial do Google Ads | ⚙️ instalado, sem credencial | falta o developer token; ver `docs/GOOGLE_ADS_MCP.md` |
 | Windsor.ai | ❌ não conectado | é o que as especificações assumem; **dispensa developer token** |
-| Export CSV do Google Ads | ✅ disponível | funciona hoje, sem depender de credencial |
+| Export CSV do Google Ads | ✅ disponível | funciona hoje, sem credencial; relatórios e colunas em `docs/exportar-csv.md` |
+
+Exports ficam em `dados/renovabe/<AAAA-MM>/` (conteúdo ignorado pelo git — ver
+`dados/README.md`), ou simplesmente anexados na conversa.
 
 As especificações foram escritas sobre o Windsor (`google_ads`,
 `googleanalytics4`). O método de leitura não muda com a fonte — o que muda é

@@ -13,3 +13,7 @@ __pycache__/
 
 # Backup local
 *.bundle
+
+# Dados de conta de cliente - ver dados/README.md
+dados/renovabe/**
+!dados/renovabe/.gitkeep

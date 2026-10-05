@@ -14,6 +14,8 @@ O escopo e os princípios do projeto estão em [CLAUDE.md](CLAUDE.md).
 | `.claude/skills/google-ads/` | skill com método de consulta e análise |
 | `.claude/agents/` | subagentes especializados |
 | `docs/metodologia/` | especificações dos agentes (fonte de verdade) |
+| `docs/exportar-csv.md` | quais relatórios exportar e com quais colunas |
+| `dados/renovabe/` | exports por período (ignorado pelo git) |
 | `scripts/` | instalação, inicialização e geração de refresh token |
 | `docs/GOOGLE_ADS_MCP.md` | passo a passo da conexão |
 
