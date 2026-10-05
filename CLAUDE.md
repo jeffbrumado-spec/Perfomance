@@ -86,6 +86,30 @@ bruta. `Ticket × Margem × 0,50` é o alvo saudável, que deixa metade da marge
 para o resto da operação. Entre as duas, a campanha dá lucro bruto mas consome
 mais da operação do que deveria — é 🟡 OTIMIZAR, não 🔴 CORTAR.
 
+## Pilar 0 — estado da mensuração (verificado em 05/10/2026)
+
+**Veredito: 🟡 utilizável, com ressalvas. Não está quebrado, mas é frágil.**
+
+O número que as análises usam vem de **uma única ação**: `purchase V2 -
+ServerSide - Sourei`, a única marcada como Principal e incluída nas metas da
+conta (8.237,72 conversões · R$ 2.611.618,41 · ticket R$ 317,03). Bate com o
+relatório de campanhas, então **não há dupla contagem no que foi analisado**.
+
+O que exige cuidado:
+
+| Risco | Detalhe |
+| --- | --- |
+| **Três rastreamentos paralelos de compra** | `Groke GA4` (janela 90 dias), `purchase - ServerSide` (30 dias) e `purchase V2` (30 dias). Só a última conta. Se alguém trocar qual é a Principal, o número da conta muda de patamar sem aviso |
+| **A ação Principal está em "Requer atenção"** | causa não verificada |
+| **Micro-conversão como meta principal em algumas campanhas** | `Visualização de página` é ação principal em 1 campanha e `Adicionar ao carrinho` em 5. Campanha nova **tem que usar a meta padrão da conta (Compras)**, nunca meta própria |
+| **Valor de conversão incremental do ciclo de vida** | R$ 30,00 para clientes inativos contra R$ 0,01 para novos. Em campanha de prospecção isso é invertido: valoriza reconquista 3.000× mais que aquisição |
+| **36 ações de conversão na conta** | boa parte com "Configuração incorreta" ou "Removido". Dívida técnica que convida a erro futuro |
+
+**Consequência prática:** recomendação de verba não fica congelada, porque o
+sinal analisado é limpo. Mas toda campanha nova precisa declarar explicitamente
+que usa a meta padrão da conta, e qualquer troca da ação Principal invalida as
+séries históricas.
+
 ## Fonte de dados — status
 
 | Fonte | Status | Observação |
