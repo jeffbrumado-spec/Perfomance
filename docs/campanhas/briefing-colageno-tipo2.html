@@ -1,0 +1,624 @@
+<title>Campanha Colágeno Tipo II</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap">
+<style>
+/* Documento operacional: coluna única de leitura, blocos de copiar em largura total, navegação fixa no topo. */
+:root{
+  --bg:#f6f8f7; --surface:#ffffff; --surface2:#eef2f1;
+  --fg:#16211f; --muted:#5a6a66; --line:#dbe3e1;
+  --accent:#0d6b60; --accent-soft:#e0efec;
+  --ok:#1c7549; --warn:#8f5e00; --crit:#ab2a20;
+  --ok-bg:#e3f3ea; --warn-bg:#fbf0d9; --crit-bg:#fbe6e4;
+  --display:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101614; --surface:#18211f; --surface2:#1f2a27;
+  --fg:#e6eeec; --muted:#93a39f; --line:#2a3533;
+  --accent:#53c8b7; --accent-soft:#143029;
+  --ok:#54b483; --warn:#d6a441; --crit:#e8796f;
+  --ok-bg:#15291f; --warn-bg:#2b2412; --crit-bg:#2e1a18;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#101614; --surface:#18211f; --surface2:#1f2a27;
+  --fg:#e6eeec; --muted:#93a39f; --line:#2a3533;
+  --accent:#53c8b7; --accent-soft:#143029;
+  --ok:#54b483; --warn:#d6a441; --crit:#e8796f;
+  --ok-bg:#15291f; --warn-bg:#2b2412; --crit-bg:#2e1a18;
+  color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15.5px;line-height:1.62;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);
+ border-bottom:1px solid var(--line);margin-inline:-20px;padding:10px 20px}
+nav .navin{display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin}
+nav a{flex:0 0 auto;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+ color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:5px;white-space:nowrap}
+nav a:hover,nav a:focus-visible{background:var(--accent-soft);color:var(--accent)}
+
+header.capa{padding-block:44px 30px;border-bottom:2px solid var(--fg)}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,6vw,42px);line-height:1.12;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em}
+.sub{font-size:17px;color:var(--muted);margin:0;max-width:60ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.meta span{font-family:var(--mono);font-size:11.5px;background:var(--surface2);border:1px solid var(--line);
+ border-radius:4px;padding:4px 9px;color:var(--muted)}
+
+section{padding-block:38px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(21px,3.6vw,27px);line-height:1.22;margin:0 0 6px;text-wrap:balance}
+h2 .num{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent);display:block;letter-spacing:.1em;margin-bottom:7px}
+h3{font-family:var(--body);font-weight:600;font-size:17px;margin:26px 0 8px;text-wrap:balance}
+h4{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+ color:var(--muted);margin:20px 0 8px}
+p{margin:0 0 13px;max-width:68ch}
+ul,ol{margin:0 0 13px;padding-left:20px;max-width:68ch}
+li{margin-bottom:5px}
+strong{font-weight:600}
+a{color:var(--accent)}
+code{font-family:var(--mono);font-size:.88em;background:var(--surface2);padding:1px 5px;border-radius:3px;
+ word-break:break-word}
+
+.lead{font-size:16.5px;color:var(--muted);margin-bottom:22px;max-width:64ch}
+
+.block{background:var(--surface);border:1px solid var(--line);border-radius:7px;margin:14px 0 18px;overflow:hidden}
+.blockhead{display:flex;align-items:center;justify-content:space-between;gap:12px;
+ padding:8px 12px;background:var(--surface2);border-bottom:1px solid var(--line)}
+.blocklabel{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.copy{font-family:var(--mono);font-size:11.5px;background:var(--surface);color:var(--accent);
+ border:1px solid var(--line);border-radius:5px;padding:4px 11px;cursor:pointer;flex:0 0 auto}
+.copy:hover{background:var(--accent-soft);border-color:var(--accent)}
+.copy.ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+.block pre{font-family:var(--mono);font-size:13px;line-height:1.68;margin:0;padding:13px;
+ overflow-x:auto;white-space:pre;color:var(--fg)}
+.nota{font-size:13.5px;color:var(--muted);margin:0;padding:9px 13px;border-top:1px solid var(--line);
+ background:var(--surface2)}
+
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:14px 16px;
+ border-radius:0 6px 6px 0;margin:18px 0}
+.callout.crit{border-color:var(--crit);background:var(--crit-bg)}
+.callout.warn{border-color:var(--warn);background:var(--warn-bg)}
+.callout p:last-child{margin-bottom:0}
+.callout .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;
+ font-weight:600;display:block;margin-bottom:6px}
+.callout .tag{color:var(--accent)} .callout.crit .tag{color:var(--crit)} .callout.warn .tag{color:var(--warn)}
+
+.tbox{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:7px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:0}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+ text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--surface2);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.chip{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;
+ padding:2px 8px;border-radius:4px;white-space:nowrap}
+.chip.ok{background:var(--ok-bg);color:var(--ok)}
+.chip.warn{background:var(--warn-bg);color:var(--warn)}
+.chip.crit{background:var(--crit-bg);color:var(--crit)}
+
+.grupo{border:1px solid var(--line);border-radius:9px;background:var(--surface);padding:18px;margin:22px 0}
+.grupo>h3{margin-top:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:9px}
+.grupo .gid{font-family:var(--mono);font-size:12.5px;color:var(--accent);font-weight:500}
+.grupo .gsub{font-size:13.5px;color:var(--muted);margin:0 0 4px}
+
+.check{list-style:none;padding:0;max-width:68ch}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.check li:last-child{border-bottom:0}
+.check .bx{flex:0 0 auto;width:15px;height:15px;border:1.5px solid var(--muted);border-radius:3px;margin-top:4px}
+
+footer{padding-block:30px 0;color:var(--muted);font-size:13.5px}
+@media (max-width:460px){
+  body{font-size:15px}
+  .wrap{padding-inline:16px}
+  nav{margin-inline:-16px;padding-inline:16px}
+  .grupo{padding:14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<div class="wrap">
+<nav><div class="navin"><a href="#contexto">Contexto</a><a href="#produto">Produto</a><a href="#angulos">Ângulos</a><a href="#conta">A conta hoje</a><a href="#tese">Tese</a><a href="#riscos">Riscos</a><a href="#config">Configuração</a><a href="#grupos">Grupos</a><a href="#negativas">Negativas</a><a href="#imagens">Imagens</a><a href="#depois">Depois</a></div></nav>
+<header class="capa"><p class="eyebrow">Briefing de campanha · Renova Be</p><h1>Colágeno Tipo II Active Plus</h1><p class="sub">Campanha de Pesquisa para a landing page de articulações. Tudo que é preciso para montar, conferir e subir — estrutura, textos prontos, riscos mapeados e os alvos de eficiência.</p><div class="meta"><span>Conta 246-084-5617</span><span>Rede de Pesquisa</span><span>R$ 235,00/dia</span><span>6 grupos · 50 palavras-chave · 12 anúncios</span><span>Base: 5/set a 4/out/2026</span></div></header>
+<section id="contexto"><h2><span class="num">01</span>O contexto do negócio</h2>
+<p class="lead">Os alvos desta campanha não são opinião. Saem da margem informada pelo cliente e do ticket real do produto.</p>
+<div class="tbox"><table><tr><th>Parâmetro</th><th>Valor</th><th>De onde vem</th></tr><tr><td>Margem bruta</td><td class="n">50%</td><td>informada pelo cliente, já líquida de frete</td></tr><tr><td>ROAS de equilíbrio</td><td class="n">2,00</td><td>100 ÷ 50</td></tr><tr><td>ROAS saudável</td><td class="n">4,00</td><td>equilíbrio × 2</td></tr><tr><td>Ticket do tipo 2</td><td class="n">R$ 232,95</td><td>valor de conversão ÷ conversões do produto</td></tr><tr><td>CPA de empate</td><td class="n">R$ 116,48</td><td>ticket × margem</td></tr><tr><td><strong>CPA saudável (alvo)</strong></td><td class="n"><strong>R$ 58,24</strong></td><td>ticket × margem × 0,50</td></tr></table></div>
+<div class="callout"><span class="tag">Por que o ticket do produto e não o da conta</span><p>A média da conta é R$ 318,27, puxada para cima pela campanha de marca. Usar essa média aqui superestimaria em 37% o CPA que esta campanha pode pagar. O tipo 2 converte a R$ 232,95.</p></div>
+<h3>Onde a campanha entra hoje</h3>
+<p>O grupo que esta campanha substitui opera a <strong>CPA de R$ 104,63</strong>: abaixo do empate, portanto com lucro bruto, mas <strong>80% acima do alvo saudável</strong>. Classificação <span class="chip warn">🟡 OTIMIZAR</span> — não <span class="chip ok">ESCALAR</span>.</p>
+<div class="tbox"><table><tr><th>Cenário</th><th>CPA</th><th>Contribuição por pedido</th><th>Em 30 dias</th></tr><tr><td>Hoje</td><td class="n">R$ 104,63</td><td class="n">R$ 11,85</td><td class="n">R$ 798</td></tr><tr><td>No alvo</td><td class="n">R$ 58,24</td><td class="n">R$ 58,24</td><td class="n">R$ 3.925</td></tr></table></div>
+<p>Chegar ao alvo multiplica por cinco a contribuição do mesmo volume. <strong>É isso que a campanha está comprando: conversão mais barata, não mais conversão.</strong></p></section>
+<section id="produto"><h2><span class="num">02</span>O produto e a oferta</h2>
+<p class="lead">Colágeno tipo II não desnaturado com cúrcuma e vitaminas, em um comprimido por dia. Posicionado explicitamente contra o colágeno de beleza: <em>"feito pra cartilagem, não pra pele"</em>.</p>
+<div class="tbox"><table><tr><th>Item</th><th>Detalhe</th></tr><tr><td>Nome</td><td>Colágeno Tipo II Active Plus</td></tr><tr><td>Composição</td><td>Colágeno tipo II não desnaturado · cúrcuma · vitaminas C, E, B1, B6 e B12</td></tr><tr><td>Posologia</td><td>1 comprimido/dia · 30 comprimidos de 900 mg · sem açúcar, sem pó, sem preparo</td></tr><tr><td>As 4 frentes</td><td>Cartilagem (tipo 2) · Formação de colágeno (vit. C) · Antioxidante (vit. E + cúrcuma) · Energia e movimento (complexo B)</td></tr></table></div>
+<h3>Preços e kits</h3>
+<div class="tbox"><table><tr><th>Kit</th><th>Preço</th><th>Por pote</th><th>Desconto</th></tr><tr><td>1 pote · 30 dias</td><td class="n">R$ 117,70</td><td class="n">R$ 117,70</td><td>—</td></tr><tr><td>3 potes · 90 dias</td><td class="n">R$ 227,70</td><td class="n">R$ 75,90</td><td class="n">36% OFF</td></tr><tr><td>5 potes · 150 dias <span class="chip ok">mais vendido</span></td><td class="n">R$ 347,70</td><td class="n">R$ 69,54</td><td class="n">41% OFF</td></tr></table></div>
+<p><strong>Garantias e condições:</strong> frete grátis · 90 dias de garantia · envio em 24h (região de São Paulo) · 6x sem juros.</p>
+<p><strong>Prova social:</strong> 4,9 de média em 800 mil avaliações · 1,3 milhão de clientes.</p>
+<div class="callout warn"><span class="tag">A alavanca que não é de mídia</span><p>O CPA permitido é função do ticket. O ticket implícito de R$ 232,95 indica que boa parte das vendas sai no pote avulso ou no kit de 3, apesar de o kit de 5 estar marcado como mais vendido. Subir o mix para o kit de 150 dias levaria o CPA saudável de <strong>R$ 58,24 para R$ 86,93</strong> — um ganho de 49% sem tocar em lance nenhum.</p></div></section><section id="angulos"><h2><span class="num">03</span>A página e os ângulos</h2>
+<p class="lead">Os grupos de anúncios saem da LP, não de suposição. A página nomeia os próprios sub-ângulos numa seção de cinco cartões — cada um vira um grupo.</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">URL final</span><button class="copy" type="button">Copiar</button></div><pre>https://renovabe.com.br/lp/colageno-tipo-2-articulacoes</pre></div>
+<h3>O que a página promete</h3>
+<p>Título principal: <strong>"Subir a escada, agachar, treinar. Sem pensar no joelho."</strong> Fecho: <strong>"Não espere a articulação reclamar."</strong></p>
+<h4>Os cinco cartões — "das articulações que mais sentem"</h4>
+<div class="tbox"><table><tr><th>Parte</th><th>Hoje</th><th>Com o tipo II</th><th>Vira o grupo</th></tr><tr><td>Joelho</td><td>estala e reclama depois do treino</td><td>treinar com a articulação cuidada</td><td><code>03_Joelho</code></td></tr><tr><td>No agachamento</td><td>descer e subir vira um cálculo</td><td>agachar e levantar sem travar</td><td><code>04_Treino_Agachamento</code></td></tr><tr><td>Na escada</td><td>o corrimão vira apoio obrigatório</td><td>subir e descer com mais conforto</td><td>reserva</td></tr><tr><td>Mãos e dedos</td><td>rígidas ao acordar, difíceis de fechar</td><td>mais facilidade pra abrir e segurar</td><td>reserva</td></tr><tr><td>Calcanhar e tornozelo</td><td>o primeiro passo da manhã já avisa</td><td>começar o dia com mais mobilidade</td><td>reserva</td></tr></table></div>
+<h4>A dúvida nº 1 do FAQ, que sustenta o posicionamento</h4>
+<p><em>"Qual a diferença entre o colágeno tipo 1 e o tipo 2?"</em> — O tipo 1 é o mais comum, voltado pra pele, cabelo e unhas. O tipo 2 é o colágeno presente na cartilagem das articulações.</p>
+<p>Essa distinção é a tese comercial inteira, e vira ao mesmo tempo copy de anúncio e lista de negativas.</p>
+<h4>Depoimentos que viraram ângulo</h4>
+<div class="tbox"><table><tr><th>Quem</th><th>O que diz</th><th>Ângulo</th></tr><tr><td>Elis B.</td><td>"Comecei por causa do joelho, que reclamava na descida. Os quatro andares do prédio deixaram de ser assunto."</td><td>joelho · escada</td></tr><tr><td>Ana N.</td><td>"Faço musculação três vezes por semana e o agachamento era o que mais incomodava. Hoje fecho a série completa."</td><td>treino</td></tr><tr><td>Lucineia</td><td>"É um comprimido, sem sabor, sem preparo. Deixo o frasco do lado da cafeteira."</td><td>praticidade</td></tr></table></div></section>
+<section id="conta"><h2><span class="num">04</span>O que já roda na conta</h2>
+<p class="lead">O produto já é disputado em quatro lugares. Saber disso antes evita criar um quinto ponto de leilão contra a própria conta.</p>
+<div class="tbox"><table><tr><th>Onde</th><th>Custo 30d</th><th>ROAS</th><th>CPA</th><th>O que fazer</th></tr><tr><td><code>tipo-2</code> · Shopping</td><td class="n">R$ 24.907,78</td><td class="n">2,71</td><td class="n">R$ 89,83</td><td><span class="chip ok">manter</span> não negativar</td></tr><tr><td><code>03_Tipo2_Articulacoes</code> · Search</td><td class="n">R$ 7.051,20</td><td class="n">2,23</td><td class="n">R$ 104,63</td><td><span class="chip crit">pausar</span> é substituído</td></tr><tr><td>PMax tipo2-creatina</td><td class="n">R$ 3.615,69</td><td class="n">2,56</td><td class="n">R$ 84,28</td><td><span class="chip ok">manter</span></td></tr><tr><td><code>tipo-2_dor-articular_remarketing</code></td><td class="n">R$ 0,00</td><td>—</td><td>—</td><td><span class="chip crit">morto por política</span></td></tr></table></div>
+<div class="callout crit"><span class="tag">Verificar antes de subir</span><p>A campanha <code>01_vendas_shopping_colageno…2025-todos-produtos</code> gasta <strong>R$ 149.968,64 por mês</strong> com ROAS 3,55 — quatro vezes todos os pontos acima somados. Se o SKU do Tipo II estiver nesse feed, ela é o maior concorrente interno desta campanha. Confirmar no Merchant Center.</p></div>
+<h3>O sinal que justifica a página dedicada</h3>
+<div class="tbox"><table><tr><th>Grupo do Search genérico</th><th>CTR</th><th>Taxa conv.</th><th>CPA</th></tr><tr><td>02_Verisol_Intencao</td><td class="n">7,02%</td><td class="n">3,01%</td><td class="n">R$ 118,08</td></tr><tr><td>01_Colageno_Verisol_emagrecimento</td><td class="n">6,51%</td><td class="n">2,30%</td><td class="n">R$ 140,07</td></tr><tr><td>01_Colageno_Verisol</td><td class="n">6,16%</td><td class="n">2,33%</td><td class="n">R$ 126,40</td></tr><tr><td><strong>03_Tipo2_Articulacoes</strong></td><td class="n"><strong>4,99%</strong></td><td class="n">2,73%</td><td class="n"><strong>R$ 104,63</strong></td></tr></table></div>
+<p><strong>Pior CTR da campanha, melhor CPA.</strong> Quem clica converte bem e barato; pouca gente clica. Subir o CTR para os ~6,5% dos outros grupos significa 30% mais cliques pela mesma verba, sobre a melhor eficiência da campanha.</p></section>
+<section id="tese"><h2><span class="num">05</span>A tese</h2>
+<p class="lead">O mercado de colágeno é majoritariamente tipo 1 — pele, cabelo, unha. Quem busca tipo 2, joelho ou cartilagem encontra menos anunciante qualificado, e a maioria dos que aparecem manda para uma página de tipo 1 que não responde à busca.</p>
+<p>A escala não vem de lance maior. Vem de relevância: <strong>anúncio alinhado ao sub-ângulo → CTR maior → Índice de Qualidade melhor → CPC menor → mais volume pela mesma verba.</strong></p>
+<p>Por isso cada grupo tem copy própria e caminho de exibição próprio, e por isso o orçamento começa igual ao do grupo que ela substitui: para medir o efeito da página sem confundir com efeito de verba.</p>
+<div class="callout warn"><span class="tag">Expectativa honesta nas primeiras semanas</span><p>O CPC de R$ 2,86 de hoje é <strong>sufocado</strong>: o grupo roda dentro de uma campanha com CPA desejado, marcada pelo Google como "limitado pelo tipo de estratégia de lances", gastando R$ 2.263,63/dia de um orçamento de R$ 5.100. Esta campanha remove esse teto — e tirar uma trava de tCPA <strong>sobe</strong> CPC e CPA em troca de volume. Entre esperando CPA acima de R$ 104,63 nas primeiras duas a três semanas. Isso não é fracasso, é o mecanismo.</p></div></section><section id="riscos"><h2><span class="num">06</span>Dois riscos que já se materializaram nesta conta</h2>
+<h3>Política de saúde</h3>
+<div class="callout crit"><span class="tag">Não é hipótese</span><p>O grupo <code>tipo-2_dor-articular_remarketing_visitantes</code> está com <strong>zero impressões há 30 dias</strong>: "a maioria dos anúncios foi limitada pela política". A campanha de YouTube do colágeno tem o mesmo problema. O Google já reprovou criativo desta conta que falava de dor articular.</p></div>
+<p>A LP acertou ao evitar a palavra: diz <em>"estala e reclama"</em>, <em>"rígidas ao acordar"</em>, <em>"não espere a articulação reclamar"</em>. Os anúncios seguem a mesma regra.</p>
+<div class="tbox"><table><tr><th>Registro</th><th>Exemplos</th><th>Pode?</th></tr><tr><td>Função e rotina</td><td>mobilidade · cartilagem · se mexer · treinar · um comprimido por dia</td><td><span class="chip ok">sim</span></td></tr><tr><td>Dor, doença, tratamento</td><td>dor · artrose · artrite · inflamação · tratar · curar · aliviar · remédio</td><td><span class="chip crit">não</span></td></tr></table></div>
+<p><strong>Distinção que importa:</strong> dar lance em termos que contenham sintoma é aceitável — a busca do usuário não é o seu anúncio. O que não pode é o <em>texto do anúncio</em> prometer tratar. Ancore na linguagem aprovada do rótulo: <em>"o colágeno tipo II não desnaturado auxilia na manutenção da função articular"</em>.</p>
+<h3>Mensuração</h3>
+<p>Verificado em 05/10/2026: <span class="chip warn">🟡 utilizável, com ressalvas</span>. O número das análises vem de uma única ação (<code>purchase V2 - ServerSide - Sourei</code>), que bate com o relatório de campanhas. Não há dupla contagem no que foi analisado.</p>
+<div class="callout crit"><span class="tag">A armadilha da tela de metas</span><p>A conta tem <code>add_to_cart - ServerSide - Sourei</code> como ação <strong>Principal</strong>, com <strong>R$ 5.760.326,44 de "valor"</strong> atribuído. Carrinho não é receita. Se esta campanha herdar essa meta, o Maximizar valor de conversão vai otimizar para carrinho abandonado em vez de venda — e isso só aparece semanas depois.</p><p><strong>A campanha tem que ficar em "Metas padrão da conta" (= Compra).</strong> Nunca em meta própria.</p></div>
+<p>Dois itens a resolver com o cliente, que não bloqueiam a montagem: a ação Principal está em "Requer atenção" (causa não verificada), e o ajuste de ciclo de vida dá R$ 30,00 de valor incremental para clientes inativos contra R$ 0,01 para novos — invertido para uma campanha de prospecção.</p></section>
+<section id="config"><h2><span class="num">07</span>Configuração da campanha</h2>
+<div class="block"><div class="blockhead"><span class="blocklabel">Nome da campanha</span><button class="copy" type="button">Copiar</button></div><pre>01_vendas_search_colageno-tipo2_fundo_max-conv_articulacoes_out2026</pre><p class="nota">Padrão da conta: NN_objetivo_canal_produto_funil_lance_detalhe_mmmAAAA. O segmento final é a data de subida.</p></div>
+<div class="tbox"><table><tr><th>Campo</th><th>Valor</th><th>Por quê</th></tr><tr><td>Tipo</td><td>Pesquisa</td><td>—</td></tr><tr><td>Lance</td><td><strong>Maximizar valor da conversão</strong>, sem ROAS desejado</td><td>a análise toda é de valor. Maximizar <em>conversões</em> perseguiria o pote avulso de R$ 117,70 e derrubaria o ticket</td></tr><tr><td>Redes</td><td>só Rede de Pesquisa</td><td>parceiros e Display diluem o CPA</td></tr><tr><td>Local</td><td>Brasil · <strong>Presença</strong></td><td>o padrão "presença ou interesse" traz tráfego de fora</td></tr><tr><td>Idioma</td><td>Português</td><td>—</td></tr><tr><td>Metas de conversão</td><td><strong>Padrão da conta</strong></td><td>ver o risco acima</td></tr><tr><td>Orçamento</td><td class="n">R$ 235,00/dia</td><td>igual ao gasto do grupo substituído, para comparar maçã com maçã</td></tr><tr><td>Rotação de anúncios</td><td>Otimizar</td><td>—</td></tr></table></div></section>
+<section id="grupos"><h2><span class="num">08</span>Os seis grupos</h2>
+<p class="lead">Distribuição por nível de intenção: alta 40%, média 40%, exploratório 20%. Palavras entre colchetes são correspondência exata; entre aspas, frase. Colar os blocos inteiros.</p>
+<div class="callout"><span class="tag">Sobre a distribuição</span><p>Uma campanha de Pesquisa tem um orçamento só — não há controle de verba por grupo. Com Maximizar valor, o Google tende a concentrar nos grupos de alta intenção. Os percentuais são a intenção do desenho, não um split configurável. Acompanhar no dia 7.</p></div>
+<div class="grupo"><h3><span class="gid">01_Tipo2_Exato</span>Tipo 2 explícito</h3>
+<p class="gsub">Alta intenção · quem já sabe o que procura</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Palavras-chave · 11</span><button class="copy" type="button">Copiar</button></div><pre>[colageno tipo 2]
+[colageno tipo ii]
+[colageno tipo 2 nao desnaturado]
+[colageno uc 2]
+[comprar colageno tipo 2]
+[melhor colageno tipo 2]
+[colageno tipo 2 original]
+&quot;colageno tipo 2&quot;
+&quot;colageno tipo ii&quot;
+&quot;comprar colageno tipo 2&quot;
+&quot;colageno tipo 2 preco&quot;</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">URL final</span><button class="copy" type="button">Copiar</button></div><pre>https://renovabe.com.br/lp/colageno-tipo-2-articulacoes?utm_source=google&amp;utm_medium=paid&amp;utm_campaign=colageno-tipo2-articulacoes-out&amp;utm_content=tipo2-exato</pre></div>
+<h4>Anúncio 1 de 2 · caminho <code>colageno/tipo-2</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 14</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno Tipo II Active Plus
+Colágeno Não Desnaturado
+Tipo 2 É Articulação
+1 Comprimido por Dia
+Sem Açúcar e Sem Preparo
+Fórmula Completa em 1 Dose
+Com Cúrcuma e Vitaminas
+Recomendado Por Especialistas
+Garantia de 90 Dias
+Frete Grátis e Envio em 24h
+Kit 5 Potes com 41% OFF
+A Partir de R$ 69,54
+Articulação e Mobilidade
+1,3 Milhão de Clientes</pre><p class="nota">Fixe o primeiro título na posição 1 — é o que alinha o anúncio ao ângulo do grupo.</p></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno tipo II não desnaturado com cúrcuma e vitaminas. Um comprimido por dia.
+Tipo 1 é pele. Tipo 2 é a cartilagem das articulações. Conheça o Active Plus.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+<h4>Anúncio 2 de 2 · caminho <code>colageno/tipo-2</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 15</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno Tipo 2 Com Cúrcuma
+Tipo 2 É Pra Cartilagem
+O Colágeno da Articulação
+4,9 de 800 Mil Avaliações
+1,3 Milhão de Clientes
+Garantia de 90 Dias Pra Testar
+Frete Grátis em Todo Brasil
+Envio em 24h
+6x Sem Juros
+Kit 150 Dias com 41% OFF
+A Partir de R$ 69,54 o Pote
+1 Comprimido por Dia
+Compra Segura
+Sem Açúcar e Sem Preparo
+Com Cúrcuma e Vitaminas</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno tipo II não desnaturado com cúrcuma e vitaminas. Um comprimido por dia.
+Tipo 1 é pele. Tipo 2 é a cartilagem das articulações. Conheça o Active Plus.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+</div>
+<div class="grupo"><h3><span class="gid">02_Articulacao_Generico</span>Articulação</h3>
+<p class="gsub">Alta intenção · a categoria</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Palavras-chave · 10</span><button class="copy" type="button">Copiar</button></div><pre>[colageno para articulacao]
+[colageno para articulacoes]
+[suplemento para articulacao]
+[suplemento para articulacoes]
+[melhor colageno para articulacao]
+[vitamina para articulacao]
+&quot;colageno articulacao&quot;
+&quot;suplemento para articulacao&quot;
+&quot;melhor suplemento para articulacao&quot;
+&quot;o que tomar para articulacao&quot;</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">URL final</span><button class="copy" type="button">Copiar</button></div><pre>https://renovabe.com.br/lp/colageno-tipo-2-articulacoes?utm_source=google&amp;utm_medium=paid&amp;utm_campaign=colageno-tipo2-articulacoes-out&amp;utm_content=articulacao</pre></div>
+<h4>Anúncio 1 de 2 · caminho <code>colageno/articulacao</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 14</span><button class="copy" type="button">Copiar</button></div><pre>Articulação e Mobilidade
+Colágeno da Cartilagem
+Feito Pra Você Se Mexer
+1 Comprimido por Dia
+Sem Açúcar e Sem Preparo
+Fórmula Completa em 1 Dose
+Com Cúrcuma e Vitaminas
+Recomendado Por Especialistas
+Garantia de 90 Dias
+Frete Grátis e Envio em 24h
+Kit 5 Potes com 41% OFF
+A Partir de R$ 69,54
+Colágeno Não Desnaturado
+1,3 Milhão de Clientes</pre><p class="nota">Fixe o primeiro título na posição 1 — é o que alinha o anúncio ao ângulo do grupo.</p></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Articulação se cuida com constância. Frete grátis e 90 dias de garantia.
+Um cuidado completo pra articulação que não para. Um comprimido por dia.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+<h4>Anúncio 2 de 2 · caminho <code>colageno/articulacao</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 15</span><button class="copy" type="button">Copiar</button></div><pre>Cuide da Sua Articulação
+Mobilidade no Dia a Dia
+Um Cuidado Completo
+4,9 de 800 Mil Avaliações
+1,3 Milhão de Clientes
+Garantia de 90 Dias Pra Testar
+Frete Grátis em Todo Brasil
+Envio em 24h
+6x Sem Juros
+Kit 150 Dias com 41% OFF
+A Partir de R$ 69,54 o Pote
+1 Comprimido por Dia
+Compra Segura
+Sem Açúcar e Sem Preparo
+Com Cúrcuma e Vitaminas</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Articulação se cuida com constância. Frete grátis e 90 dias de garantia.
+Um cuidado completo pra articulação que não para. Um comprimido por dia.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+</div>
+<div class="grupo"><h3><span class="gid">03_Joelho</span>Joelho</h3>
+<p class="gsub">Média intenção · o ângulo mais sustentado pela LP</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Palavras-chave · 9</span><button class="copy" type="button">Copiar</button></div><pre>[colageno para joelho]
+[suplemento para joelho]
+[colageno joelho]
+[suplemento para cartilagem do joelho]
+[colageno para dor no joelho]
+&quot;colageno para joelho&quot;
+&quot;suplemento para joelho&quot;
+&quot;o que tomar para o joelho&quot;
+&quot;suplemento cartilagem joelho&quot;</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">URL final</span><button class="copy" type="button">Copiar</button></div><pre>https://renovabe.com.br/lp/colageno-tipo-2-articulacoes?utm_source=google&amp;utm_medium=paid&amp;utm_campaign=colageno-tipo2-articulacoes-out&amp;utm_content=joelho</pre></div>
+<h4>Anúncio 1 de 2 · caminho <code>colageno/joelho</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 14</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno Tipo 2 pra Joelho
+Subir Escada Sem Pensar
+Articulação e Mobilidade
+1 Comprimido por Dia
+Sem Açúcar e Sem Preparo
+Fórmula Completa em 1 Dose
+Com Cúrcuma e Vitaminas
+Recomendado Por Especialistas
+Garantia de 90 Dias
+Frete Grátis e Envio em 24h
+Kit 5 Potes com 41% OFF
+A Partir de R$ 69,54
+Colágeno Não Desnaturado
+1,3 Milhão de Clientes</pre><p class="nota">Fixe o primeiro título na posição 1 — é o que alinha o anúncio ao ângulo do grupo.</p></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Subir a escada e agachar sem pensar no joelho. Um comprimido por dia.
+O colágeno tipo 2 é o da cartilagem do joelho. Frete grátis e 90 dias.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+<h4>Anúncio 2 de 2 · caminho <code>colageno/joelho</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 15</span><button class="copy" type="button">Copiar</button></div><pre>Pro Joelho Que Reclama
+Escada Sem Corrimão
+Colágeno Pra Cartilagem
+4,9 de 800 Mil Avaliações
+1,3 Milhão de Clientes
+Garantia de 90 Dias Pra Testar
+Frete Grátis em Todo Brasil
+Envio em 24h
+6x Sem Juros
+Kit 150 Dias com 41% OFF
+A Partir de R$ 69,54 o Pote
+1 Comprimido por Dia
+Compra Segura
+Sem Açúcar e Sem Preparo
+Com Cúrcuma e Vitaminas</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Subir a escada e agachar sem pensar no joelho. Um comprimido por dia.
+O colágeno tipo 2 é o da cartilagem do joelho. Frete grátis e 90 dias.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+</div>
+<div class="grupo"><h3><span class="gid">04_Treino_Agachamento</span>Treino e agachamento</h3>
+<p class="gsub">Média intenção · público que treina</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Palavras-chave · 8</span><button class="copy" type="button">Copiar</button></div><pre>[colageno para quem treina]
+[colageno para musculacao]
+[suplemento articulacao treino]
+[colageno para academia]
+&quot;colageno musculacao articulacao&quot;
+&quot;colageno para treino&quot;
+&quot;suplemento articulacao musculacao&quot;
+&quot;colageno para agachamento&quot;</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">URL final</span><button class="copy" type="button">Copiar</button></div><pre>https://renovabe.com.br/lp/colageno-tipo-2-articulacoes?utm_source=google&amp;utm_medium=paid&amp;utm_campaign=colageno-tipo2-articulacoes-out&amp;utm_content=treino</pre></div>
+<h4>Anúncio 1 de 2 · caminho <code>colageno/treino</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 15</span><button class="copy" type="button">Copiar</button></div><pre>Pra Quem Treina Todo Dia
+Agachamento Sem Pensar
+Feito Pra Você Se Mexer
+1 Comprimido por Dia
+Sem Açúcar e Sem Preparo
+Fórmula Completa em 1 Dose
+Com Cúrcuma e Vitaminas
+Recomendado Por Especialistas
+Garantia de 90 Dias
+Frete Grátis e Envio em 24h
+Kit 5 Potes com 41% OFF
+A Partir de R$ 69,54
+Colágeno Não Desnaturado
+Articulação e Mobilidade
+1,3 Milhão de Clientes</pre><p class="nota">Fixe o primeiro título na posição 1 — é o que alinha o anúncio ao ângulo do grupo.</p></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Pra quem treina e quer continuar treinando. Envio em 24h e frete grátis.
+Agachar, subir escada, treinar. Um comprimido por dia pra articulação.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+<h4>Anúncio 2 de 2 · caminho <code>colageno/treino</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 15</span><button class="copy" type="button">Copiar</button></div><pre>Treine Sem Pensar No Joelho
+Fecha a Série Completa
+Pra Quem Não Para
+4,9 de 800 Mil Avaliações
+1,3 Milhão de Clientes
+Garantia de 90 Dias Pra Testar
+Frete Grátis em Todo Brasil
+Envio em 24h
+6x Sem Juros
+Kit 150 Dias com 41% OFF
+A Partir de R$ 69,54 o Pote
+1 Comprimido por Dia
+Compra Segura
+Sem Açúcar e Sem Preparo
+Com Cúrcuma e Vitaminas</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Pra quem treina e quer continuar treinando. Envio em 24h e frete grátis.
+Agachar, subir escada, treinar. Um comprimido por dia pra articulação.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+</div>
+<div class="grupo"><h3><span class="gid">05_Cartilagem</span>Cartilagem</h3>
+<p class="gsub">Média intenção · ângulo técnico</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Palavras-chave · 6</span><button class="copy" type="button">Copiar</button></div><pre>[colageno para cartilagem]
+[suplemento para cartilagem]
+[colageno que forma cartilagem]
+&quot;colageno cartilagem&quot;
+&quot;suplemento para cartilagem&quot;
+&quot;colageno para regenerar cartilagem&quot;</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">URL final</span><button class="copy" type="button">Copiar</button></div><pre>https://renovabe.com.br/lp/colageno-tipo-2-articulacoes?utm_source=google&amp;utm_medium=paid&amp;utm_campaign=colageno-tipo2-articulacoes-out&amp;utm_content=cartilagem</pre></div>
+<h4>Anúncio 1 de 2 · caminho <code>colageno/cartilagem</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 14</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno da Cartilagem
+Colágeno Não Desnaturado
+Cuidado Com Fundamento
+1 Comprimido por Dia
+Sem Açúcar e Sem Preparo
+Fórmula Completa em 1 Dose
+Com Cúrcuma e Vitaminas
+Recomendado Por Especialistas
+Garantia de 90 Dias
+Frete Grátis e Envio em 24h
+Kit 5 Potes com 41% OFF
+A Partir de R$ 69,54
+Articulação e Mobilidade
+1,3 Milhão de Clientes</pre><p class="nota">Fixe o primeiro título na posição 1 — é o que alinha o anúncio ao ângulo do grupo.</p></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>O colágeno tipo 2 é o presente na cartilagem das articulações.
+Tipo II não desnaturado com cúrcuma e vitaminas C, E, B1, B6 e B12.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+<h4>Anúncio 2 de 2 · caminho <code>colageno/cartilagem</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 15</span><button class="copy" type="button">Copiar</button></div><pre>Tipo 2 É da Cartilagem
+O Colágeno da Articulação
+Ativo Certo, Dose Certa
+4,9 de 800 Mil Avaliações
+1,3 Milhão de Clientes
+Garantia de 90 Dias Pra Testar
+Frete Grátis em Todo Brasil
+Envio em 24h
+6x Sem Juros
+Kit 150 Dias com 41% OFF
+A Partir de R$ 69,54 o Pote
+1 Comprimido por Dia
+Compra Segura
+Sem Açúcar e Sem Preparo
+Com Cúrcuma e Vitaminas</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>O colágeno tipo 2 é o presente na cartilagem das articulações.
+Tipo II não desnaturado com cúrcuma e vitaminas C, E, B1, B6 e B12.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+</div>
+<div class="grupo"><h3><span class="gid">06_Formula_Comparacao</span>Fórmula e comparação <span class="chip warn">entra pausado</span></h3>
+<p class="gsub">Exploratório · entra pausado</p>
+<p class="gsub">Segunda onda. Montar e deixar pausado — grupo sem volume não sai da fase de aprendizado, e seis grupos dividindo R$ 235/dia não aprendem.</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Palavras-chave · 6</span><button class="copy" type="button">Copiar</button></div><pre>[diferenca colageno tipo 1 e tipo 2]
+[colageno com curcuma]
+[colageno tipo 2 com curcuma]
+&quot;colageno tipo 1 ou tipo 2&quot;
+&quot;qual colageno para articulacao&quot;
+&quot;colageno com curcuma&quot;</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">URL final</span><button class="copy" type="button">Copiar</button></div><pre>https://renovabe.com.br/lp/colageno-tipo-2-articulacoes?utm_source=google&amp;utm_medium=paid&amp;utm_campaign=colageno-tipo2-articulacoes-out&amp;utm_content=formula</pre></div>
+<h4>Anúncio 1 de 2 · caminho <code>colageno/formula</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 13</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno Tipo 2 + Cúrcuma
+Fórmula Completa em 1 Dose
+Com Cúrcuma e Vitaminas
+1 Comprimido por Dia
+Sem Açúcar e Sem Preparo
+Recomendado Por Especialistas
+Garantia de 90 Dias
+Frete Grátis e Envio em 24h
+Kit 5 Potes com 41% OFF
+A Partir de R$ 69,54
+Colágeno Não Desnaturado
+Articulação e Mobilidade
+1,3 Milhão de Clientes</pre><p class="nota">Fixe o primeiro título na posição 1 — é o que alinha o anúncio ao ângulo do grupo.</p></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Tipo 1 é pele, cabelo e unha. Tipo 2 é a cartilagem das articulações.
+Colágeno tipo II, cúrcuma e 5 vitaminas no mesmo comprimido. Sem açúcar.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+<h4>Anúncio 2 de 2 · caminho <code>colageno/formula</code></h4>
+<div class="block"><div class="blockhead"><span class="blocklabel">Títulos · 15</span><button class="copy" type="button">Copiar</button></div><pre>Tipo 1 É Pele, Tipo 2 Não
+Cúrcuma e 5 Vitaminas
+Tudo em 1 Comprimido
+4,9 de 800 Mil Avaliações
+1,3 Milhão de Clientes
+Garantia de 90 Dias Pra Testar
+Frete Grátis em Todo Brasil
+Envio em 24h
+6x Sem Juros
+Kit 150 Dias com 41% OFF
+A Partir de R$ 69,54 o Pote
+1 Comprimido por Dia
+Compra Segura
+Sem Açúcar e Sem Preparo
+Com Cúrcuma e Vitaminas</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Descrições · 4</span><button class="copy" type="button">Copiar</button></div><pre>Tipo 1 é pele, cabelo e unha. Tipo 2 é a cartilagem das articulações.
+Colágeno tipo II, cúrcuma e 5 vitaminas no mesmo comprimido. Sem açúcar.
+Kit 5 potes por R$ 69,54 cada. Envio em 24h e garantia de 90 dias.
+Sem sabor, sem preparo, cabe na rotina. 4,9 de média em 800 mil avaliações.</pre></div>
+</div>
+</section>
+<section id="negativas"><h2><span class="num">09</span>Palavras-chave negativas</h2>
+<p class="lead">São 70, todas no <strong>nível da campanha</strong>. Caminho: Campanhas → a campanha → Palavras-chave → aba <strong>Palavras-chave negativas</strong>.</p>
+<div class="callout crit"><span class="tag">Conferir a aba antes de colar</span><p>Se este bloco entrar na aba de palavras-chave normais, a campanha passa a anunciar para <code>pele</code>, <code>cachorro</code>, <code>remedio</code> e <code>youtube</code>. Confirme que está na aba <strong>negativas</strong>.</p></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Negativas de campanha · 70</span><button class="copy" type="button">Copiar</button></div><pre>&quot;renovabe&quot;
+&quot;renova be&quot;
+&quot;active plus&quot;
+&quot;pele&quot;
+&quot;cabelo&quot;
+&quot;unha&quot;
+&quot;unhas&quot;
+&quot;rugas&quot;
+&quot;antirrugas&quot;
+&quot;flacidez&quot;
+&quot;beleza&quot;
+&quot;verisol&quot;
+&quot;peptideos&quot;
+&quot;em po&quot;
+&quot;firmeza&quot;
+&quot;estrias&quot;
+&quot;celulite&quot;
+&quot;gratis&quot;
+&quot;gratuito&quot;
+&quot;barato&quot;
+&quot;receita&quot;
+&quot;caseiro&quot;
+&quot;como fazer&quot;
+&quot;o que e&quot;
+&quot;bula&quot;
+&quot;wikipedia&quot;
+&quot;youtube&quot;
+&quot;pdf&quot;
+&quot;alimentos ricos&quot;
+&quot;manipulado&quot;
+&quot;generico&quot;
+&quot;cachorro&quot;
+&quot;cao&quot;
+&quot;caes&quot;
+&quot;gato&quot;
+&quot;pet&quot;
+&quot;canino&quot;
+&quot;veterinario&quot;
+&quot;remedio&quot;
+&quot;medicamento&quot;
+&quot;anti inflamatorio&quot;
+&quot;injecao&quot;
+&quot;cirurgia&quot;
+&quot;fisioterapia&quot;
+&quot;pelo sus&quot;
+&quot;colageno tipo 1&quot;
+&quot;colageno tipo i&quot;
+&quot;tipo i&quot;
+&quot;colageno 1&quot;
+&quot;artrose&quot;
+&quot;artrite&quot;
+&quot;inflamacao&quot;
+&quot;cabelos&quot;
+&quot;peptideo&quot;
+&quot;gelatina&quot;
+&quot;para que serve&quot;
+&quot;como tomar&quot;
+&quot;efeitos colaterais&quot;
+&quot;faz mal&quot;
+&quot;contraindicacao&quot;
+&quot;funciona mesmo&quot;
+&quot;reclame aqui&quot;
+&quot;tutorial&quot;
+&quot;blog&quot;
+&quot;mercado livre&quot;
+&quot;amazon&quot;
+&quot;shopee&quot;
+&quot;farmacia&quot;
+&quot;drogaria&quot;
+&quot;colageno hidrolisado&quot;</pre><p class="nota">Cobrem: marca própria · tipo 1 e beleza · informacionais · veterinário · medicamento · marketplace.</p></div>
+<h3>Negativação cruzada</h3>
+<p>Adicionar os termos de tipo 2 como negativa <strong>apenas</strong> nestas três campanhas de Search:</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Campanhas que recebem a negativa</span><button class="copy" type="button">Copiar</button></div><pre>01_Colageno_Verisol
+01_Colageno_Verisol_emagrecimento
+02_Verisol_Intencao</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Negativas a adicionar nelas</span><button class="copy" type="button">Copiar</button></div><pre>&quot;colageno tipo 2&quot;
+&quot;colageno tipo ii&quot;
+&quot;colageno para articulacao&quot;</pre></div>
+<div class="callout crit"><span class="tag">Não fazer no Shopping</span><p>O grupo <code>tipo-2</code> do Shopping entrega CPA de R$ 89,83 — 14% melhor que o Search que esta campanha substitui. Shopping e Search ocupam posições diferentes da busca e não disputam o mesmo leilão. Negativar lá desligaria o canal mais eficiente do produto para proteger o menos eficiente.</p></div></section><section id="extensoes"><h2><span class="num">10</span>Recursos de anúncio</h2>
+<p class="lead">Não viajam no CSV de importação. Adicionar na interface, no nível da campanha.</p>
+<div class="block"><div class="blockhead"><span class="blocklabel">Frases de destaque</span><button class="copy" type="button">Copiar</button></div><pre>Frete Grátis
+90 Dias de Garantia
+Envio em 24h
+6x Sem Juros
+1 Comprimido por Dia
+Sem Açúcar</pre></div>
+<div class="block"><div class="blockhead"><span class="blocklabel">Snippets estruturados · cabeçalho Tipos</span><button class="copy" type="button">Copiar</button></div><pre>Colágeno Tipo II
+Cúrcuma
+Vitamina C
+Vitamina E
+Complexo B</pre></div>
+<h4>Sitelinks</h4>
+<div class="tbox"><table><tr><th>Texto</th><th>Destino</th></tr><tr><td>Como Funciona</td><td><code>…/colageno-tipo-2-articulacoes#como-funciona</code></td></tr><tr><td>Onde Atua</td><td><code>…/colageno-tipo-2-articulacoes#onde-atua</code></td></tr><tr><td>Dúvidas</td><td><code>…/colageno-tipo-2-articulacoes#duvidas</code></td></tr><tr><td>Kit 5 Potes · 41% OFF</td><td><code>…/colageno-tipo-2-articulacoes</code></td></tr></table></div>
+<p class="nota" style="border:1px solid var(--line);border-radius:6px">Confirmar as âncoras abrindo a LP e clicando no menu dela (ONDE ATUA · COMO FUNCIONA · DÚVIDAS). Se não existirem, usar a URL simples nas quatro.</p></section>
+<section id="imagens"><h2><span class="num">11</span>Imagens — entram manualmente</h2>
+<div class="callout warn"><span class="tag">Condição de operação</span><p>A conta ainda <strong>não tem chave de API</strong> configurada. Toda a montagem é manual, e os recursos de imagem são adicionados <strong>um a um, dentro de cada anúncio ou no nível do grupo</strong>, pela interface do Google Ads. Nenhum arquivo de importação carrega imagem.</p></div>
+<p>Recursos de imagem são opcionais em campanhas de Pesquisa, mas aumentam a área ocupada no resultado e costumam elevar o CTR — que é exatamente a métrica da tese desta campanha. Vale adicionar.</p>
+<h3>Onde adicionar</h3>
+<p>Campanha → <strong>Recursos</strong> → <strong>Imagens</strong> → adicionar no nível do grupo de anúncios, para que cada grupo receba a imagem do seu ângulo.</p>
+<h3>Formatos</h3>
+<div class="tbox"><table><tr><th>Proporção</th><th>Recomendado</th><th>Mínimo</th></tr><tr><td>Quadrada (1:1)</td><td class="n">1200 × 1200</td><td class="n">300 × 300</td></tr><tr><td>Paisagem (1.91:1)</td><td class="n">1200 × 628</td><td class="n">600 × 314</td></tr></table></div>
+<p class="nota" style="border:1px solid var(--line);border-radius:6px">Confirmar os limites vigentes no próprio painel ao fazer o upload — o Google ajusta esses requisitos periodicamente.</p>
+<h3>Que imagem usar em cada grupo</h3>
+<p>A LP já tem o banco de imagens certo. A regra é a mesma da copy: <strong>a imagem do grupo mostra o movimento, não o sintoma.</strong> Evitar as fotos com marcação vermelha de dor — elas existem na página, mas em anúncio puxam o mesmo escrutínio de política que já derrubou criativo nesta conta.</p>
+<div class="tbox"><table><tr><th>Grupo</th><th>Imagem sugerida</th></tr><tr><td><code>01_Tipo2_Exato</code></td><td>o pote do produto em fundo limpo</td></tr><tr><td><code>02_Articulacao_Generico</code></td><td>pote + selo de fórmula completa</td></tr><tr><td><code>03_Joelho</code></td><td>a foto da escada, <strong>sem</strong> a marcação vermelha</td></tr><tr><td><code>04_Treino_Agachamento</code></td><td>pessoa treinando, movimento completo</td></tr><tr><td><code>05_Cartilagem</code></td><td>o comprimido ou a imagem de fórmula/laboratório</td></tr><tr><td><code>06_Formula_Comparacao</code></td><td>o rótulo com os ativos visíveis</td></tr></table></div>
+<p><strong>Logo:</strong> adicionar também o logo da Renova Be nos recursos da campanha, em quadrado (1:1) e paisagem (4:1). É o que permite ao anúncio exibir a marca no resultado.</p></section>
+<section id="depois"><h2><span class="num">12</span>Depois de publicar</h2>
+<p class="lead">A campanha sobe <strong>pausada</strong>. Estas quatro coisas antes de ativar.</p>
+<ul class="check"><li><span class="bx"></span><div><strong>Confirmar "Metas padrão da conta"</strong> em Configurações → Metas de conversão. É o item de maior consequência da lista.</div></li><li><span class="bx"></span><div><strong>Pausar o grupo <code>03_Tipo2_Articulacoes</code></strong> dentro de <code>02_vendas_search_generico_meio_max-conv_novo-cliente_2026_curva-a-b</code>. Esta campanha o substitui; deixar os dois rodando é competir contra si mesmo.</div></li><li><span class="bx"></span><div><strong>Negativar tipo 2 nas três campanhas de Verisol</strong> — e não no Shopping.</div></li><li><span class="bx"></span><div><strong>Verificar o feed do Shopping de colágeno</strong> no Merchant Center: o SKU do Tipo II está lá?</div></li></ul>
+<h3>O que não fazer</h3>
+<ul><li>Não aumentar o orçamento nas primeiras semanas. <strong>R$ 235/dia até o CPA cruzar R$ 80.</strong></li><li>Não mexer em lance nos primeiros 7 dias — a campanha está em aprendizado e qualquer mudança reinicia o ciclo.</li><li>Não se assustar com o CPA subindo nas primeiras 2 a 3 semanas. É o efeito de remover a trava de tCPA.</li><li>Não aceitar "aplicar recomendação" do Google sem ler. Várias religam parceiros de pesquisa e ampliam correspondência.</li></ul>
+<h3>Calendário</h3>
+<div class="tbox"><table><tr><th>Quando</th><th>O quê</th></tr><tr><td><strong>Dia 3</strong></td><td>Algum anúncio reprovado por política? Quanto gastou por dia? Abaixo de R$ 150/dia indica falta de cobertura, não de lance — abrir 2 ou 3 amplas nos grupos de média intenção</td></tr><tr><td><strong>Dia 7</strong></td><td>Primeira mineração de termos de pesquisa: negativar desperdício, promover termo bom a exata</td></tr><tr><td><strong>Dia 14</strong></td><td>Comparar o CTR contra os 4,99% do grupo antigo. É a métrica que testa a tese</td></tr><tr><td><strong>Dia 30</strong></td><td>Avaliar o CPA contra o alvo de R$ 58,24 e só então decidir sobre verba</td></tr></table></div></section>
+<footer><p>Briefing gerado a partir dos dados da conta 246-084-5617 no período de 5/set a 4/out/2026. Os textos de anúncio foram validados nos limites de 30 caracteres para títulos e 90 para descrições. As palavras-chave não se repetem entre grupos no mesmo tipo de correspondência.</p></footer>
+</div>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.copy'); if(!b) return;
+  var pre=b.closest('.block').querySelector('pre'); if(!pre) return;
+  var txt=pre.textContent;
+  function ok(){ var o=b.textContent; b.textContent='Copiado'; b.classList.add('ok');
+    setTimeout(function(){b.textContent=o;b.classList.remove('ok')},1400); }
+  function sel(){ try{ var r=document.createRange(); r.selectNodeContents(pre);
+      var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      b.textContent='Selecionado'; setTimeout(function(){b.textContent='Copiar'},1600);
+    }catch(_){ b.textContent='Selecione manual'; } }
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(ok,sel);
+    } else { sel(); }
+  }catch(_){ sel(); }
+});
+</script>
