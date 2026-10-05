@@ -17,6 +17,15 @@ exporte duas vezes: o período atual e o anterior, com o **mesmo número de dias
 por data e o arquivo explode. Queremos o **total do período** por entidade.
 Exceção: o relatório 7 (sazonalidade), que existe justamente para isso.
 
+**Filtre antes de exportar — isto importa.** Termos de pesquisa e Produtos são
+os relatórios que explodem: uma conta com esse volume gera dezenas de milhares
+de linhas, e a cauda é quase toda ruído de uma conversão ou nenhuma. Antes de
+baixar, aplique um filtro de custo mínimo (ex.: `Custo > R$ 50`) ou de cliques.
+Isso corta o arquivo em 90% sem perder nada que decida verba — a própria
+metodologia já manda ignorar o que está abaixo do volume de significância. Em
+anexo grande o custo é real: um relatório de termos sem filtro consome mais
+contexto que toda a análise junta.
+
 **Formato.** Baixe em **.csv**. O botão de download (⬇) fica acima da tabela, no
 canto direito.
 
