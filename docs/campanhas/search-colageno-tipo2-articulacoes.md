@@ -274,7 +274,7 @@ descrições ≤ 90, já conferidos.
 | Lance | Maximizar conversões, **sem tCPA no início** | tCPA irreal sufoca entrega — é o que já trava o `02_vendas_search_generico` |
 | Orçamento inicial | **R$ 235/dia** | igual ao gasto atual do `03_Tipo2_Articulacoes`, para comparar maçã com maçã |
 | Local | Brasil, "Presença: pessoas no local" | evita tráfego de fora |
-| URL final | a LP, com UTM | `utm_source=google&utm_medium=paid&utm_campaign=tipo2-articulacoes-conversao-out` |
+| URL final | a LP, com UTM | `utm_source=google&utm_medium=paid&utm_campaign=colageno-tipo2-articulacoes-out` |
 | Rotação de anúncios | Otimizar | deixa o Google achar a RSA vencedora |
 
 > **Comece com a verba atual, não maior.** Se subir verba e trocar a página ao

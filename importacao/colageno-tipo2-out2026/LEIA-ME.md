@@ -1,6 +1,6 @@
 # Importação · Campanha Colágeno Tipo II
 
-**Campanha:** `01_vendas_search_colageno-tipo2_fundo_max-conv_articulacoes_20261005`
+**Campanha:** `01_vendas_search_colageno-tipo2_fundo_max-conv_articulacoes_out2026`
 **Gerado em:** 05/10/2026
 
 ## ⚠️ A campanha vem PAUSADA
@@ -14,8 +14,8 @@ mesmo movimento é como se descobre erro gastando dinheiro.
 Segue o padrão da conta, com o segmento de data acrescentado no fim:
 
 ```
-NN_objetivo_canal_produto_funil_lance_detalhe_AAAAMMDD
-01_vendas_search_colageno-tipo2_fundo_max-conv_articulacoes_20261005
+NN_objetivo_canal_produto_funil_lance_detalhe_mmmAAAA
+01_vendas_search_colageno-tipo2_fundo_max-conv_articulacoes_out2026
                                                              └── novo
 ```
 
