@@ -34,12 +34,21 @@ O produto já roda em quatro lugares, **R$ 35.574,67 em 30 dias**:
 | PMax tipo2-creatina | R$ 3.615,69 | 2,56 | R$ 84,28 |
 | `tipo-2_dor-articular_remarketing` | R$ 0,00 | — | morto por política |
 
+> **Inventário incompleto.** Esta tabela não lista a campanha
+> `01_vendas_shopping_colageno...2025-todos-produtos`, que gasta
+> **R$ 149.968,64/mês** com ROAS 3,55. Se o SKU do Tipo II estiver nesse feed,
+> ela é o maior concorrente interno desta campanha — quatro vezes maior que os
+> quatro pontos acima somados. Verificar no Merchant Center antes de subir.
+
 **Recomendação: a campanha nova substitui o `03_Tipo2_Articulacoes`.** Migrar, não
 somar. Criar um quinto ponto de disputa pela mesma query sobe o próprio CPC sem
 trazer demanda nova — Google captura demanda, não cria.
 
-Shopping e PMax continuam, mas precisam de **negativação cruzada** para não
-brigar com o Search nas queries exatas de tipo 2.
+Shopping e PMax **continuam sem negativação cruzada**. O grupo `tipo-2` do
+Shopping entrega CPA de R$ 89,83, melhor que o Search que esta campanha
+substitui — e Shopping e Search ocupam posições diferentes da SERP, podendo
+aparecer na mesma busca sem disputar o mesmo leilão. A negativação cruzada aqui
+é só contra as campanhas de Verisol, que são Search contra Search.
 
 ## 3. 🚨 Política — o alerta não é teórico
 
@@ -271,7 +280,7 @@ descrições ≤ 90, já conferidos.
 | Item | Valor | Por quê |
 | --- | --- | --- |
 | Tipo | Pesquisa, só Rede de Pesquisa | Parceiros e Display diluem o CPA |
-| Lance | Maximizar conversões, **sem tCPA no início** | tCPA irreal sufoca entrega — é o que já trava o `02_vendas_search_generico` |
+| Lance | **Maximizar valor de conversão** | a análise toda é de valor (ticket, mix de kit). Maximizar *conversões* perseguiria o pote avulso e derrubaria o ticket |
 | Orçamento inicial | **R$ 235/dia** | igual ao gasto atual do `03_Tipo2_Articulacoes`, para comparar maçã com maçã |
 | Local | Brasil, "Presença: pessoas no local" | evita tráfego de fora |
 | URL final | a LP, com UTM | `utm_source=google&utm_medium=paid&utm_campaign=colageno-tipo2-articulacoes-out` |
@@ -326,6 +335,17 @@ aquisição e sobra pouco para a operação. Classificação: 🟡 **OTIMIZAR**,
 Nem o cenário otimista alcança o alvo. **Suba a campanha, mas com o objetivo de
 consertar eficiência — não de escalar verba.** Mantenha R$ 235/dia até o CPA
 cruzar R$ 80. Abrir orçamento antes disso multiplica um CPA que já está apertado.
+
+### ⚠️ Correção: o CPC deve subir, não cair
+
+A projeção de CPC caindo para R$ 2,40 estava errada. O CPC de R$ 2,86 de hoje é
+**sufocado por um teto de tCPA**: o grupo roda em `02_vendas_search_generico`,
+que o Google marca como *"limitado pelo tipo de estratégia de lances"* e que
+gasta R$ 2.263,63/dia de um orçamento de R$ 5.100.
+
+Remover esse teto **sobe** CPC e CPA em troca de volume. A comparação "maçã com
+maçã" do §8 não existe como prometida — é gasto reprimido contra gasto livre.
+Entre esperando CPA acima de R$ 104,63 nas primeiras duas a três semanas.
 
 ### A alavanca que não é de mídia
 
