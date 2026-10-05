@@ -52,21 +52,35 @@ relatório "ficar bonito" é defeito.
 **Somente leitura por padrão.** Nenhum agente altera campanha, lance ou
 orçamento sem pedido explícito e confirmação.
 
-## Parâmetros do negócio — ⚠️ em aberto
+## Parâmetros do negócio
 
-A metodologia inteira depende de dois números que **não vêm de API** e ainda não
-foram informados:
-
-| Parâmetro | Para quê | Status |
+| Parâmetro | Valor | Status |
 | --- | --- | --- |
-| Margem bruta média | ROAS de equilíbrio = `100 ÷ margem` | ❌ pendente |
-| Ticket médio | CPA máximo tolerável, piso de taxa de conversão | ❌ pendente |
-| Meta de receita do período | cálculo de sessões e investimento necessários | ❌ pendente |
-| Customer ID da conta | toda consulta | ❌ pendente |
+| **Margem bruta média** | **50%** | ✅ informado pelo cliente |
+| **ROAS de equilíbrio** | **2,00** (`100 ÷ 50`) | derivado |
+| **ROAS saudável** | **4,00** (equilíbrio × 2) | derivado |
+| Ticket médio da conta | R$ 318,27 | implícito nos dados de set/out 2026 |
+| Meta de receita do período | — | ❌ pendente (trava `trafego-estrategico`) |
+| Customer ID da conta | — | ❌ pendente |
 
-Sem margem e ticket **não existe linha de corte**, e a matriz de tiering não
-classifica nada. Peça esses números antes de rodar `ads-analise` ou
-`trafego-estrategico` — não os estime.
+### O ticket é por produto, não da conta
+
+`CPA máximo tolerável = Ticket × Margem × 0,50`. Como o ticket varia bastante
+entre produtos, **use o ticket do produto analisado**, nunca a média da conta —
+ela é puxada para cima pela marca e subestima o aperto dos produtos de ticket
+menor.
+
+| Produto | Ticket | CPA de empate | CPA saudável |
+| --- | --- | --- | --- |
+| Conta (média) | R$ 318,27 | R$ 159,14 | R$ 79,57 |
+| Colágeno (Shopping) | R$ 302,78 | R$ 151,39 | R$ 75,70 |
+| Creatina | R$ 298,05 | R$ 149,03 | R$ 74,51 |
+| **Colágeno tipo 2** | **R$ 232,95** | **R$ 116,48** | **R$ 58,24** |
+
+**Duas linhas, não uma.** `Ticket × Margem` é onde a mídia empata com a margem
+bruta. `Ticket × Margem × 0,50` é o alvo saudável, que deixa metade da margem
+para o resto da operação. Entre as duas, a campanha dá lucro bruto mas consome
+mais da operação do que deveria — é 🟡 OTIMIZAR, não 🔴 CORTAR.
 
 ## Fonte de dados — status
 

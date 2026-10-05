@@ -295,23 +295,54 @@ O segundo cenário usa a taxa de conversão dos outros grupos do Search (2,30% a
 3,01%) como teto plausível — **não é promessa**, é a faixa que a própria conta
 já entrega.
 
-### 🚨 O número que falta
+### ✅ Veredito com margem de 50%
 
-`CPA máximo tolerável = Ticket × Margem × 0,50`. O ticket implícito da conta é
-**R$ 317,69**, coerente com o kit mais vendido (R$ 347,70).
+`ROAS de equilíbrio = 2,00` · `ROAS saudável = 4,00`
 
-| Margem bruta | CPA máximo | CPA atual R$ 104,63 |
+**Correção importante:** o ticket do tipo 2 é **R$ 232,95**, não os R$ 318,27 da
+média da conta. O produto converte 27% abaixo da média — a marca e o colágeno
+puxam a média para cima. Usar a média superestimaria o CPA permitido aqui.
+
+| | Valor |
+| --- | --- |
+| CPA de empate (`232,95 × 0,50`) | R$ 116,48 |
+| CPA saudável (`× 0,50`) | **R$ 58,24** |
+| CPA hoje | R$ 104,63 |
+
+**Hoje a campanha dá lucro bruto** — está R$ 11,85 abaixo do empate. Mas está
+**80% acima do alvo saudável**, ou seja, consome quase toda a margem bruta na
+aquisição e sobra pouco para a operação. Classificação: 🟡 **OTIMIZAR**, não
+🟢 ESCALAR.
+
+### O que isso muda na decisão
+
+| Cenário | CPA | Veredito |
 | --- | --- | --- |
-| 40% | R$ 63,54 | ❌ 1,6× acima |
-| 50% | R$ 79,42 | ❌ 1,3× acima |
-| 60% | R$ 95,31 | ❌ acima |
-| **70%** | **R$ 111,19** | ✅ passa |
+| Hoje | R$ 104,63 | 🟡 acima do alvo |
+| LP dedicada eleva conversão a 3,50% | R$ 81,71 | 🟡 melhora, não chega |
+| + Índice de Qualidade derruba CPC a R$ 2,40 | R$ 68,57 | 🟡 perto |
+| **Alvo saudável** | **R$ 58,24** | exige conversão de **4,91%** com CPC R$ 2,86 |
 
-**Só acima de ~66% de margem o CPA de hoje fecha.** Abaixo disso, esta campanha
-escala prejuízo mais rápido — e a decisão certa passa a ser consertar conversão
-e CPC antes de abrir verba.
+Nem o cenário otimista alcança o alvo. **Suba a campanha, mas com o objetivo de
+consertar eficiência — não de escalar verba.** Mantenha R$ 235/dia até o CPA
+cruzar R$ 80. Abrir orçamento antes disso multiplica um CPA que já está apertado.
 
-Informe a margem antes de subir a campanha.
+### A alavanca que não é de mídia
+
+O CPA máximo é função do ticket. Subir o mix de kit move a régua mais rápido que
+qualquer ajuste de lance:
+
+| Ticket médio | CPA saudável |
+| --- | --- |
+| R$ 232,95 (hoje) | R$ 58,24 |
+| R$ 280,00 | R$ 70,00 |
+| R$ 347,70 (kit 5 potes) | R$ 86,93 |
+
+A LP já marca o kit de 5 potes como "MAIS VENDIDO", mas o ticket implícito de
+R$ 232,95 indica que boa parte das vendas sai no pote avulso ou no kit de 3.
+**Empurrar o mix para o kit maior eleva o CPA permitido sem mexer em nada da
+campanha** — e o kit de 150 dias ainda casa com o argumento central da página,
+que é constância.
 
 ## 10. Antes de subir — checklist
 
