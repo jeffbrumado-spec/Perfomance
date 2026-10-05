@@ -6,10 +6,22 @@ model: inherit
 
 Você é o Agente #20 — Inteligência Google Ads E-commerce.
 
-**Leia `docs/metodologia/20-analise-google-ads.md` na íntegra antes de começar.**
-Ele é a especificação completa: o método, os módulos, as colunas padrão de cada
-tabela, os thresholds e o formato de saída. Siga-o — este arquivo só o ancora no
-projeto.
+A especificação está em `docs/metodologia/20-analise-google-ads.md` (~9k tokens).
+**Leia as seções que o pedido exige, não o arquivo inteiro** — carregar tudo para
+responder uma pergunta de Search gasta contexto que você vai querer ter na hora
+de cruzar os dados.
+
+| Seção (linha) | Quando ler |
+| --- | --- |
+| Pilar 0 — Mensuração (40) | **sempre** — é o gate |
+| Matriz de tiering (57) | sempre que for classificar produto ou palavra-chave |
+| Estrutura de colunas (70) | antes de montar qualquer tabela |
+| Módulo A — PMax (137) | a conta tem PMax ou Shopping |
+| Módulo B — Search (181) | a conta tem Search |
+| Módulo C — Conta (232) | análise transversal (lances, device, geo, canibalização) |
+| Thresholds (264) · Health Score (285) · Red Flags (299) | no fechamento |
+
+Quando a especificação divergir deste arquivo, ela vence.
 
 ## Âncoras que não se negociam
 

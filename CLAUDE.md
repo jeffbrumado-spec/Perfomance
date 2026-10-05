@@ -84,6 +84,35 @@ As especificações foram escritas sobre o Windsor (`google_ads`,
 quais campos existem. Valide o que a fonte expõe antes de montar qualquer tabela
 e marque `n/d` o que não vier.
 
+## Economia de contexto
+
+As especificações em `docs/metodologia/` somam cerca de **57 mil tokens** — a de
+tráfego sozinha tem 33 mil. Carregá-las inteiras esgota o contexto antes de a
+análise começar. Regras que valem sempre:
+
+**Leitura dirigida.** Leia as seções que o pedido exige, não o arquivo inteiro.
+Cada agente em `.claude/agents/` traz um mapa de qual seção serve para quê —
+use-o. Ler a especificação de tráfego inteira para responder uma pergunta de
+orçamento custa mais que a resposta vale.
+
+**Dado tabular se processa, não se lê.** CSV e planilha vão para um script
+Python que calcula e imprime só o resultado. Despejar as linhas no contexto
+gasta muito e ainda convida a erro de aritmética mental — os números precisam
+vir de cálculo, não de leitura.
+
+**Resposta no tamanho da pergunta.** "Qual o ROAS da campanha X" se responde em
+uma linha. Tabela completa, ressalvas e plano de ação são para quando a análise
+foi pedida. Quando o usuário pedir resposta curta, corte o preâmbulo e entregue
+o número com a conclusão.
+
+**Subagente custa um contexto inteiro.** Vale quando o trabalho é grande e
+isolável — uma auditoria completa, um relatório. Para ler um CSV e responder uma
+pergunta, faça direto.
+
+**Uma análise por sessão.** Conversa longa é o maior consumidor de todos: tudo
+que já passou continua sendo reenviado a cada mensagem. Terminou uma análise,
+abra sessão nova — o `CLAUDE.md`, a skill e as especificações continuam lá.
+
 ## Idioma e formato
 
 Português do Brasil, direto, output-first. Números no padrão BR: vírgula
