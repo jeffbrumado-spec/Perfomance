@@ -61,7 +61,7 @@ orçamento sem pedido explícito e confirmação.
 | **ROAS saudável** | **4,00** (equilíbrio × 2) | derivado |
 | Ticket médio da conta | R$ 318,27 | implícito nos dados de set/out 2026 |
 | Meta de receita do período | — | ❌ pendente (trava `trafego-estrategico`) |
-| Customer ID da conta | — | ❌ pendente |
+| Customer ID da conta | **2460845617** (246-084-5617 · Renova Be) | ✅ visto no painel |
 
 > O frete está **dentro** dos 50% (confirmado pelo cliente). Não desconte frete
 > de novo ao calcular CPA de empate ou margem por pedido — seria contar duas
@@ -119,7 +119,7 @@ séries históricas.
 
 | Fonte | Status | Observação |
 | --- | --- | --- |
-| MCP oficial do Google Ads | ⚙️ instalado, sem credencial | falta o developer token; ver `docs/GOOGLE_ADS_MCP.md` |
+| MCP oficial do Google Ads | ⚙️ instalado, developer token obtido | falta o cliente OAuth e o refresh token; ver `docs/GOOGLE_ADS_MCP.md` |
 | Windsor.ai | ❌ não conectado | é o que as especificações assumem; **dispensa developer token** |
 | Export CSV do Google Ads | ✅ disponível | funciona hoje, sem credencial; relatórios e colunas em `docs/exportar-csv.md` |
 
