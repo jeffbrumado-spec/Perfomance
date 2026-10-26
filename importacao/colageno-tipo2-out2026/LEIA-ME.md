@@ -98,10 +98,10 @@ Depois de importar tudo: **Publicar**.
 Com margem de 50% e ticket de R$ 232,95 para o tipo 2:
 
 - **CPA de empate:** R$ 116,48
-- **CPA saudável:** R$ 58,24
+- **CPA saudável:** R$ 69,95 (meta interna)
 - **CPA hoje (grupo que ela substitui):** R$ 104,63
 
-A campanha entra 🟡 OTIMIZAR. **Não abra orçamento até o CPA cruzar R$ 80.**
+A campanha entra 🟡 OTIMIZAR. **Não abra orçamento até o CPA cruzar R$ 70.**
 
 ### ⚠️ Espere o CPA SUBIR nas primeiras semanas
 

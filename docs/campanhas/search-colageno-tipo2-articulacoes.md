@@ -315,7 +315,8 @@ puxam a média para cima. Usar a média superestimaria o CPA permitido aqui.
 | | Valor |
 | --- | --- |
 | CPA de empate (`232,95 × 0,50`) | R$ 116,48 |
-| CPA saudável (`× 0,50`) | **R$ 58,24** |
+| **Meta interna (ROAS 3,33)** | **R$ 69,95** ← alvo de trabalho |
+| CPA saudável da metodologia (`× 0,50`) | R$ 58,24 |
 | CPA hoje | R$ 104,63 |
 
 **Hoje a campanha dá lucro bruto** — está R$ 11,85 abaixo do empate, e o frete
@@ -332,11 +333,12 @@ aquisição e sobra pouco para a operação. Classificação: 🟡 **OTIMIZAR**,
 | Hoje | R$ 104,63 | 🟡 acima do alvo |
 | LP dedicada eleva conversão a 3,50% | R$ 81,71 | 🟡 melhora, não chega |
 | + Índice de Qualidade derruba CPC a R$ 2,40 | R$ 68,57 | 🟡 perto |
-| **Alvo saudável** | **R$ 58,24** | exige conversão de **4,91%** com CPC R$ 2,86 |
+| **Meta interna** | **R$ 69,95** | alcançada no segundo cenário |
+| Saudável da metodologia | R$ 58,24 | exige conversão de 4,91% com CPC R$ 2,86 |
 
-Nem o cenário otimista alcança o alvo. **Suba a campanha, mas com o objetivo de
-consertar eficiência — não de escalar verba.** Mantenha R$ 235/dia até o CPA
-cruzar R$ 80. Abrir orçamento antes disso multiplica um CPA que já está apertado.
+O segundo cenário **alcança a meta interna** de R$ 69,95. **Suba a campanha com
+o objetivo de consertar eficiência — não de escalar verba.** Mantenha R$ 235/dia
+até o CPA cruzar R$ 70. Abrir orçamento antes disso multiplica um CPA que já está apertado.
 
 ### ⚠️ Correção: o CPC deve subir, não cair
 

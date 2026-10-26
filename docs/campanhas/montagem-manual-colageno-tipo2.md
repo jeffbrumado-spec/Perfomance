@@ -1105,4 +1105,4 @@ adicione como negativas:
 
 | **Dia 14** | Me mande o relatório de **grupos de anúncios**. Comparamos o CTR contra os 4,99% do grupo antigo |
 
-| **Dia 30** | Avaliamos o CPA contra o alvo de R$ 58,24 e decidimos sobre verba |
+| **Dia 30** | Avaliamos o CPA contra o alvo de R$ 69,95 (meta interna) e decidimos sobre verba |

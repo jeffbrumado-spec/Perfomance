@@ -58,7 +58,8 @@ orçamento sem pedido explícito e confirmação.
 | --- | --- | --- |
 | **Margem bruta média** | **50%**, já líquida de frete | ✅ informado pelo cliente |
 | **ROAS de equilíbrio** | **2,00** (`100 ÷ 50`) | derivado |
-| **ROAS saudável** | **4,00** (equilíbrio × 2) | derivado |
+| **Meta interna de ROAS** | **3,33** | ✅ definida pelo cliente |
+| **ROAS saudável (metodologia)** | **4,00** (equilíbrio × 2) | derivado |
 | Ticket médio da conta | R$ 318,27 | implícito nos dados de set/out 2026 |
 | Meta de receita do período | — | ❌ pendente (trava `trafego-estrategico`) |
 | Customer ID da conta | **2460845617** (246-084-5617 · Renova Be) | ✅ visto no painel |
@@ -74,17 +75,25 @@ entre produtos, **use o ticket do produto analisado**, nunca a média da conta �
 ela é puxada para cima pela marca e subestima o aperto dos produtos de ticket
 menor.
 
-| Produto | Ticket | CPA de empate | CPA saudável |
-| --- | --- | --- | --- |
-| Conta (média) | R$ 318,27 | R$ 159,14 | R$ 79,57 |
-| Colágeno (Shopping) | R$ 302,78 | R$ 151,39 | R$ 75,70 |
-| Creatina | R$ 298,05 | R$ 149,03 | R$ 74,51 |
-| **Colágeno tipo 2** | **R$ 232,95** | **R$ 116,48** | **R$ 58,24** |
+| Produto | Ticket | Empate · ROAS 2,00 | **Meta interna · 3,33** | Saudável · 4,00 |
+| --- | --- | --- | --- | --- |
+| Conta (média) | R$ 318,27 | R$ 159,13 | **R$ 95,58** | R$ 79,57 |
+| Colágeno (Shopping) | R$ 302,78 | R$ 151,39 | **R$ 90,92** | R$ 75,69 |
+| Creatina | R$ 298,05 | R$ 149,03 | **R$ 89,50** | R$ 74,51 |
+| **Colágeno tipo 2** | **R$ 232,95** | **R$ 116,47** | **R$ 69,95** | R$ 58,24 |
 
-**Duas linhas, não uma.** `Ticket × Margem` é onde a mídia empata com a margem
-bruta. `Ticket × Margem × 0,50` é o alvo saudável, que deixa metade da margem
-para o resto da operação. Entre as duas, a campanha dá lucro bruto mas consome
-mais da operação do que deveria — é 🟡 OTIMIZAR, não 🔴 CORTAR.
+**Três linhas, não uma.** O empate (`ticket × margem`) é onde a mídia consome
+toda a margem bruta. A **meta interna de 3,33** é a régua que o cliente usa, e é
+contra ela que se cobra resultado. O saudável da metodologia (`× 0,50`) é mais
+exigente e serve de alvo de longo prazo.
+
+Use a **meta interna** como alvo de trabalho e o **empate** como piso. Entre as
+duas é 🟡 OTIMIZAR; abaixo do empate é 🔴 CORTAR.
+
+> O "mínimo de R$ 3,33" que aparece nos relatórios semanais é essa meta interna,
+> **não** o ponto de equilíbrio. Confundir os dois leva a classificar como
+> prejuízo o que é apenas desempenho abaixo da meta — a diferença, no tipo 2, é
+> entre R$ 69,95 e R$ 116,47 de CPA.
 
 ## Pilar 0 — estado da mensuração (verificado em 05/10/2026)
 
